@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  api:
+    build: .
+    env_file:
+      - .env
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+    ports:
+      - $LISTEN_PORT:$LISTEN_PORT
+    restart: always
